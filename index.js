@@ -56,6 +56,7 @@ app.post('/web-data', async (req, res) => {
       title: 'Успешная покупка',
       input_message_content: {message_text: 'Поздравляем с покупкой ' + products}
      })
+     bot.sendMessage(6852995611, 'Спасибо за заказ!')
      return res.status(200).json({});
   } catch (e) {
     await bot.answerWebAppQuery(queryId, {
@@ -67,6 +68,8 @@ app.post('/web-data', async (req, res) => {
      return res.status(500).json({});
 
   }
+
+  
 })
 
 const PORT = 8000;
