@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
 
-const token = '6734134366:AAHSQQSrnnofTC75MMScy95TFy0oT0AAO_w';
+const token = '6399316344:AAEqygeDSYsR9s4GFMsn_S5hez-H_13-Xzw';
 const webAppUrl = 'https://monumental-frangipane-34ce90.netlify.app';
 
 const bot = new TelegramBot(token, {polling: true});
