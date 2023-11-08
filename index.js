@@ -17,7 +17,7 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if(text === '/start') {
-    await bot.sendMessage(chatId, 'Сообщение 1', {
+    await bot.sendMessage(chatId, 'Сообщение 2', {
         reply_markup: {
             
             inline_keyboard: [
