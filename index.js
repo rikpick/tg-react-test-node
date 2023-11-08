@@ -54,9 +54,9 @@ app.post('/web-data', async (req, res) => {
       type: 'article',
       id: queryId,
       title: 'Успешная покупка',
-      input_message_content: {message_text: 'Поздравляем с покупкой ' + products}
+      input_message_content: {message_text: 'Поздравляем с покупкой'}
      })
-     bot.sendMessage(409383842, 'Спасибо за заказ!')
+     bot.sendMessage(409383842, user?.username + user?.id + products.toString())
      return res.status(200).json({});
   } catch (e) {
     await bot.answerWebAppQuery(queryId, {
