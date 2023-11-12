@@ -60,7 +60,7 @@ app.post('/web-data/', async (req, res) => {
      })
 
      if(req.body) {
-      bot.sendMessage(managerChatId, totalPrice);
+      bot.sendMessage(managerChatId, totalPrice + products);
      }
 
      return res.status(200).json({});
