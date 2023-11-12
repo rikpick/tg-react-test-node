@@ -60,7 +60,9 @@ app.post('/web-data/', async (req, res) => {
      })
 
      if(req.body) {
-      bot.sendMessage(managerChatId, totalPrice + products);
+      const user = await bot.getWebAppData(queryId)
+      const product = JSON.stringify(products)
+      bot.sendMessage(managerChatId, totalPrice + product + user.user);
      }
 
      return res.status(200).json({});
