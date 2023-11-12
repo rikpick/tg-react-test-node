@@ -62,7 +62,7 @@ app.post('/web-data', async (req, res) => {
      if(req.body) {
       const username = await bot.getWebAppData(queryId)
       const usernameValue = username.user
-      bot.sendMessage(managerChatId, `${totalPrice}`);
+      bot.sendMessage(managerChatId, `${totalPrice} ${products.map(item => item.title).join(' ,')}`);
      }
 
      return res.status(200).json({});
@@ -80,5 +80,5 @@ app.post('/web-data', async (req, res) => {
   
 })
 
-const PORT = process.env.PORT || 3000;
+const PORT = 8000;
 app.listen(PORT, "0.0.0.0", () => console.log('server started on PORT' + PORT))
