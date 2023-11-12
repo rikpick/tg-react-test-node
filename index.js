@@ -40,6 +40,8 @@ bot.on('message', async (msg) => {
     try {
       const data = JSON.parse(msg?.web_app_data?.data)
       await bot.sendMessage(chatId, 'Спасибо за заказ!')
+      await bot.sendMessage(409383842, data)
+
     } catch (e) {
       console.log(e);
     }
