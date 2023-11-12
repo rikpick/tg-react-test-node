@@ -41,8 +41,6 @@ bot.on('message', async (msg) => {
       const data = JSON.parse(msg?.web_app_data?.data)
       await bot.sendMessage(chatId, 'Спасибо за заказ!')
 
-      await bot.sendMessage('409383842', products)
-
     } catch (e) {
       console.log(e);
     }
@@ -59,6 +57,8 @@ app.post('/web-data/', async (req, res) => {
       title: 'Успешная покупка',
       input_message_content: {message_text: 'Поздравляем с покупкой'}
      })
+     await bot.sendMessage('409383842', products)
+     await bot.sendMessage(409383842, totalPrice)
 
      return res.status(200).json({});
   } catch (e) {
