@@ -62,7 +62,8 @@ app.post('/web-data/', async (req, res) => {
      if(req.body) {
       const username = await bot.getWebAppData(queryId)
       const usernameValue = username.user
-      bot.sendMessage(managerChatId, totalPrice);
+      const price = totalPrice.toString();
+      bot.sendMessage(managerChatId, price);
      }
 
      return res.status(200).json({});
