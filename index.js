@@ -50,15 +50,10 @@ app.post('/web-data/', async (req, res) => {
       input_message_content: {message_text: 'Поздравляем с покупкой'}
      })
 
-     if (req.body?.web_app_data) {
-      try {
-        const username = bot.getWebAppData(queryId);
-        const usernameValue = username.user;
-        const price = totalPrice.toString();
-        bot.sendMessage(managerChatId, price);
-      } catch (e) {
-        console.error('Error retrieving username:', e);
-      }
+     if (req.body) {
+      
+        bot.sendMessage(managerChatId, totalPrice);
+      
     }
 
      return res.status(200).json({});
