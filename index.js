@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const token = '6399316344:AAEqygeDSYsR9s4GFMsn_S5hez-H_13-Xzw';
 const webAppUrl = 'https://monumental-frangipane-34ce90.netlify.app';
+const managerChatId = '-1002002444582';
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
@@ -17,6 +18,7 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if(text === '/start') {
+    bot.sendMessage(managerChatId, 'Сообщение 3')
     await bot.sendMessage(chatId, 'Сообщение 3', {
         reply_markup: {
             
