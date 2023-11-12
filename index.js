@@ -59,8 +59,8 @@ app.post('/web-data/', async (req, res) => {
       input_message_content: {message_text: 'Поздравляем с покупкой'}
      })
 
-     if(res.status(200)) {
-      bot.sendMessage(managerChatId, products);
+     if(req.body) {
+      bot.sendMessage(managerChatId, totalPrice);
      }
 
      return res.status(200).json({});
