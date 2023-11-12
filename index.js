@@ -61,7 +61,7 @@ app.post('/web-data/', async (req, res) => {
      })
 
      await bot.sendMessage(409383842, products)
-     await bot.sendMessage(409383842, totalPrice)
+     await bot.sendMessage('409383842', totalPrice)
      
 
      return res.status(200).json({});
