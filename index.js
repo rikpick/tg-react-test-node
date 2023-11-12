@@ -26,15 +26,6 @@ bot.on('message', async (msg) => {
             ]
         }
     })
-
-    await bot.sendMessage(chatId, 'Сообщение 1', {
-      reply_markup: {
-          
-          keyboard: [
-              [{text: 'Сообщение 2', web_app: {url: webAppUrl}}]
-          ]
-      }
-  })
   }
 
   if(msg?.web_app_data?.data) {
@@ -59,12 +50,16 @@ app.post('/web-data/', async (req, res) => {
       input_message_content: {message_text: 'Поздравляем с покупкой'}
      })
 
-     if(req.body) {
-      const username = await bot.getWebAppData(queryId)
-      const usernameValue = username.user
-      const price = totalPrice.toString();
-      bot.sendMessage(managerChatId, price);
-     }
+     if (req.body?.web_app_data) {
+      try {
+        const username = await bot.getWebAppData(queryId);
+        const usernameValue = username.user;
+        const price = totalPrice.toString();
+        bot.sendMessage(managerChatId, price);
+      } catch (e) {
+        console.error('Error retrieving username:', e);
+      }
+    }
 
      return res.status(200).json({});
   } catch (e) {
