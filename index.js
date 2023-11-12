@@ -57,8 +57,6 @@ app.post('/web-data/', async (req, res) => {
       title: 'Успешная покупка',
       input_message_content: {message_text: 'Поздравляем с покупкой'}
      })
-     await bot.sendMessage('409383842', products)
-     await bot.sendMessage(409383842, totalPrice)
 
      return res.status(200).json({});
   } catch (e) {
