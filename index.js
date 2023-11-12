@@ -41,7 +41,7 @@ bot.on('message', async (msg) => {
       const data = JSON.parse(msg?.web_app_data?.data)
       await bot.sendMessage(chatId, 'Спасибо за заказ!')
 
-      await bot.sendMessage(409383842, products)
+      await bot.sendMessage('409383842', products)
 
     } catch (e) {
       console.log(e);
