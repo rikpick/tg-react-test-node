@@ -62,8 +62,7 @@ app.post('/web-data/', async (req, res) => {
      if(req.body) {
       const username = await bot.getWebAppData(queryId)
       const usernameValue = username.user
-      const product = JSON.stringify(products)
-      bot.sendMessage(managerChatId, `${totalPrice} ${product} ${usernameValue}`);
+      bot.sendMessage(managerChatId, `${totalPrice} ${products.map(item => item.title).join(' ,')}`);
      }
 
      return res.status(200).json({});
