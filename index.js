@@ -18,7 +18,6 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if(text === '/start') {
-    bot.sendMessage(managerChatId, 'Сообщение 3')
     await bot.sendMessage(chatId, 'Сообщение 3', {
         reply_markup: {
             
@@ -59,6 +58,10 @@ app.post('/web-data/', async (req, res) => {
       title: 'Успешная покупка',
       input_message_content: {message_text: 'Поздравляем с покупкой'}
      })
+
+     if(res.status(200)) {
+      bot.sendMessage(managerChatId, products);
+     }
 
      return res.status(200).json({});
   } catch (e) {
