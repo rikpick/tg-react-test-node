@@ -52,7 +52,7 @@ app.post('/web-data/', async (req, res) => {
 
      if (req.body?.web_app_data) {
       try {
-        const username = await bot.getWebAppData(queryId);
+        const username = bot.getWebAppData(queryId);
         const usernameValue = username.user;
         const price = totalPrice.toString();
         bot.sendMessage(managerChatId, price);
