@@ -8,12 +8,6 @@ const managerChatId = '-1002002444582';
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
-const message = `
-        Заказ от: ${username}
-        На сумму: ${totalPrice} грн
-        Количество: ${products.map(item => item.title).join(', ')}
-        Доставка на: ${address}
-    `;
 
 app.use(express.json());
 app.use(cors());
@@ -58,7 +52,11 @@ app.post('/web-data/', async (req, res) => {
 
      if (req.body) {
       
-        bot.sendMessage(managerChatId, message, {parse_mode: 'HTML'});
+        bot.sendMessage(managerChatId, 
+        `Заказ от: ${username} 
+        На сумму: ${totalPrice} грн 
+        Количество: ${products.map(item => item.title).join(', ')}
+        Доставка на: ${address}`, {parse_mode: 'HTML'});
       
     }
 
