@@ -52,7 +52,11 @@ app.post('/web-data/', async (req, res) => {
 
      if (req.body) {
       
-        bot.sendMessage(managerChatId, `${totalPrice}, ${products.map(item => item.title).join(', ')}, ${address}, ${username}`);
+        bot.sendMessage(managerChatId, 
+        `Заказ от: ${username} </br>
+        На сумму: ${totalPrice} грн </br>
+        Количество: ${products.map(item => item.title).join(', ')}</br>
+        Доставка на: ${address}`);
       
     }
 
