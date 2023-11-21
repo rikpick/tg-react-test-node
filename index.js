@@ -56,7 +56,7 @@ app.post('/web-data/', async (req, res) => {
         `Заказ от: ${username} </br>
         На сумму: ${totalPrice} грн </br>
         Количество: ${products.map(item => item.title).join(', ')}</br>
-        Доставка на: ${address}`);
+        Доставка на: ${address}`, {parse_mode: 'HTML'});
       
     }
 
