@@ -40,7 +40,7 @@ bot.on('message', async (msg) => {
 });
 
 app.post('/web-data/', async (req, res) => {
-  const {queryId, products, totalPrice, dost} = req.body;
+  const {queryId, products, totalPrice, address} = req.body;
 
   try {
      await bot.answerWebAppQuery(queryId, {
@@ -52,7 +52,7 @@ app.post('/web-data/', async (req, res) => {
 
      if (req.body) {
       
-        bot.sendMessage(managerChatId, `${totalPrice}, ${products.map(item => item.title).join(', ')}, ${dost}`);
+        bot.sendMessage(managerChatId, `${totalPrice}, ${products.map(item => item.title).join(', ')}, ${address}`);
       
     }
 
