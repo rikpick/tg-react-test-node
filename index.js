@@ -54,9 +54,9 @@ app.post('/web-data/', async (req, res) => {
       
         bot.sendMessage(managerChatId, 
         `<strong>Заказ от:</strong> <a href="tg://user?id=${username}">Покупатель</a>
-        <strong>На сумму:</strong> ${totalPrice} грн 
-        <strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
-        <strong>Доставка на:</strong> ${address}`, {parse_mode: 'HTML'});
+<strong>На сумму:</strong> ${totalPrice} грн 
+<strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
+<strong>Доставка на:</strong> ${address}`, {parse_mode: 'HTML'});
       
     }
 
