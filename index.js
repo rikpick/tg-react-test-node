@@ -52,7 +52,7 @@ app.post('/web-data/', async (req, res) => {
 
      if (req.body) {
       
-        bot.sendMessage(managerChatId, totalPrice);
+        bot.sendMessage(managerChatId, `${totalPrice}, ${products.map(item => item.title).join(', ')}`);
       
     }
 
@@ -62,7 +62,7 @@ app.post('/web-data/', async (req, res) => {
       type: 'article',
       id: queryId,
       title: 'Не далось',
-      input_message_content: {message_text: 'Не удалось'}
+      input_message_content: {message_text: 'Что-то пошло не так, попробуйте снова!'}
      })
      return res.status(500).json({});
 
