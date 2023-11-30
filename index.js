@@ -53,7 +53,7 @@ app.post('/web-data/', async (req, res) => {
      if (req.body) {
       
         bot.sendMessage(managerChatId, 
-        `<strong>Заказ от:</strong> <a href="https://t.me/user?start=${username}">Покупатель</a>
+        `<strong>Заказ от:</strong> <a href="https://t.me/${name || 'user'}?start=${username}">Покупатель</a>
 <strong>На сумму:</strong> ${totalPrice} грн 
 <strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
 <strong>Доставка на:</strong> ${address}
