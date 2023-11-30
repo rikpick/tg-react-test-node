@@ -40,7 +40,7 @@ bot.on('message', async (msg) => {
 });
 
 app.post('/web-data/', async (req, res) => {
-  const {queryId, products, totalPrice, address, username, pay, name} = req.body;
+  const {queryId, products, totalPrice, address, username, pay, name, sort, klad} = req.body;
 
   try {
      await bot.answerWebAppQuery(queryId, {
@@ -55,7 +55,9 @@ app.post('/web-data/', async (req, res) => {
         bot.sendMessage(managerChatId, name ?
         `<strong>Имя пользователя:</strong> @${name ? name : 'нету'}
 <strong>На сумму:</strong> ${totalPrice} грн 
+<strong>Сорт:</strong> ${sort} 
 <strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
+<strong>Способ доставки:</strong> ${klad}
 <strong>Доставка на:</strong> ${address}
 <strong>Способ оплаты:</strong> ${pay}`
  : 
