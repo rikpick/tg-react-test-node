@@ -18,12 +18,11 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if(text === '/start') {
-    await bot.sendMessage(chatId, 'Чтобы сделать заказ нажми на кнопку "Магазин"', {
+    await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
         reply_markup: {
             
             inline_keyboard: [
                 [{text: 'Магазин', web_app: {url: webAppUrl}}]
-                [{text: 'Подробно о сортах', web_app: {url: webAppUrl}}]
             ]
         }
     })
