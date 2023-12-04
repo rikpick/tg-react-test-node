@@ -18,7 +18,7 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if(text === '/start') {
-    await bot.sendMessage(chatId, 'Сообщение 3', {
+    await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
         reply_markup: {
             
             inline_keyboard: [
