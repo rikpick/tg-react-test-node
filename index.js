@@ -2,9 +2,9 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
 
-const token = '6399316344:AAEqygeDSYsR9s4GFMsn_S5hez-H_13-Xzw';
+const token = '5815922470:AAHcHI6ypUrgBa-VJYmUOmsml85Ax319-2U';
 const webAppUrl = 'https://monumental-frangipane-34ce90.netlify.app';
-const managerChatId = '-1002002444582';
+const managerChatId = '-1001836297880';
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
@@ -19,12 +19,7 @@ bot.on('message', async (msg) => {
 
   if(text === '/start') {
     await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
-        reply_markup: {
-            
-            inline_keyboard: [
-                [{text: 'Магазин', web_app: {url: webAppUrl}}]
-            ]
-        }
+        
     })
   }
 
@@ -47,7 +42,8 @@ app.post('/web-data/', async (req, res) => {
       type: 'article',
       id: queryId,
       title: 'Успешная покупка',
-      input_message_content: {message_text: 'Поздравляем с покупкой'}
+      input_message_content: {message_text:
+         'Ваш заказ в обработке! В ближайшее время с Вами свяжется наш менеджер.'}
      })
 
      if (req.body) {
