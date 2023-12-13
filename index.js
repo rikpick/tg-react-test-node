@@ -1,7 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
 
 const token = '5815922470:AAHcHI6ypUrgBa-VJYmUOmsml85Ax319-2U';
 const webAppUrl = 'https://monumental-frangipane-34ce90.netlify.app';
@@ -19,19 +18,13 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if(text === '/start') {
-    await   bot.sendPhoto(chatId, fs.readFileSync('tovar.jpg'), {caption: 'Описание фотографии'})
-    .then(sentMessage => {
-      console.log('Фотография успешно отправлена:', sentMessage.photo);
-    })
-    .catch(error => {
-      console.error('Ошибка при отправке фотографии:', error);
-    });
-
+    await bot.sendPhoto({
+      chat_id : chatId,
+      photo: 'back\tovar.jpg'
+      })
     await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
         
     })
-
-
   }
 
   if(msg?.web_app_data?.data) {
