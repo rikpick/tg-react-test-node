@@ -18,7 +18,7 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if(text === '/start') {
-    await bot.sendPhoto(chatId,'tovar.jpg')
+    /*await bot.sendPhoto(chatId,'tovar.jpg')*/
     await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
         
     })
