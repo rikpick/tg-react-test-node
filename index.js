@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
 
-const token = '';
+const token = '5815922470:AAHcHI6ypUrgBa-VJYmUOmsml85Ax319-2U';
 const webAppUrl = 'https://monumental-frangipane-34ce90.netlify.app';
 const managerChatId = '-1001836297880';
 
