@@ -17,15 +17,13 @@ bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
 
-  let msgCount = 0;
   
 
-  if(text === '/start' && msgCount < 4) {
+  if(text === '/start') {
     /*await bot.sendPhoto(chatId,'tovar.jpg')*/
     await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
         
     });
-    msgCount = msgCount + 1;
 
   }
 
