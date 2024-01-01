@@ -26,8 +26,7 @@ bot.on('message', async (msg) => {
         
     });
 
-    await bot.sendMessage(newUsersChat, `Чат айди ${chatId}, 
-    Пользователь ${msg.from.id}, ${msg.from.username}, ${msg.from.is_bot}`
+    await bot.sendMessage(newUsersChat, `Пользователь ${msg.from.id}, ${msg.from.username}, ${msg.from.is_bot}`
 
     )
 
