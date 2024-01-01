@@ -25,7 +25,7 @@ bot.on('message', async (msg) => {
     await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
         
     });
-    msgCount += msgCount;
+    msgCount = msgCount + 1;
 
   }
 
