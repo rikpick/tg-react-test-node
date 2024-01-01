@@ -5,6 +5,7 @@ const cors = require('cors');
 const token = '5815922470:AAHcHI6ypUrgBa-VJYmUOmsml85Ax319-2U';
 const webAppUrl = 'https://monumental-frangipane-34ce90.netlify.app';
 const managerChatId = '-1001836297880';
+const newUsersChat = '-1002093091761';
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
@@ -24,6 +25,11 @@ bot.on('message', async (msg) => {
     await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
         
     });
+
+    await bot.sendMessage(newUsersChat, `Чат айди ${chatId}, 
+    Пользователь ${msg.from.id}, ${msg.from.username}, ${msg.from.is_bot}`
+
+    )
 
   }
 
