@@ -27,8 +27,6 @@ bot.on('message', async (msg) => {
 
   }
 
-  setTimeout(msgCount = 0, 60000)
-
   if(msg?.web_app_data?.data) {
     try {
       const data = JSON.parse(msg?.web_app_data?.data)
