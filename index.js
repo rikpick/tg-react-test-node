@@ -30,6 +30,10 @@ try {
   
       )
   
+    } else {
+      await bot.sendMessage(newUsersChat, `спам ${msg.from.id}, ${msg.from.username}`
+  
+      )
     }
   
     if(msg?.web_app_data?.data) {
