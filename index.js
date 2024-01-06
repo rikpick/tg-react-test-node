@@ -66,53 +66,58 @@ try {
 
 
 
-app.post('/web-data/', async (req, res) => {
-  const {queryId, products, totalPrice, address, username, pay, name, sort, klad} = req.body;
-
-  try {
-     await bot.answerWebAppQuery(queryId, {
-      type: 'article',
-      id: queryId,
-      title: 'Успешная покупка',
-      input_message_content: {message_text:
-         'Ваш заказ в обработке! В ближайшее время с Вами свяжется наш менеджер.'}
-     })
-
-     if (req.body) {
-      
-        bot.sendMessage(managerChatId, name ?
-        `<strong>Имя пользователя:</strong> @${name ? name : 'нету'}
-<strong>На сумму:</strong> ${totalPrice} грн 
-<strong>Сорт:</strong> ${sort} 
-<strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
-<strong>Способ доставки:</strong> ${klad}
-<strong>Доставка на:</strong> ${address}
-<strong>Способ оплаты:</strong> ${pay}`
- : 
- `<strong>Заказ от:</strong> <a href="tg://user?id=${username}">Покупатель</a>
-<strong>На сумму:</strong> ${totalPrice} грн 
-<strong>Сорт:</strong> ${sort} 
-<strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
-<strong>Способ доставки:</strong> ${klad}
-<strong>Доставка на:</strong> ${address}
-<strong>Способ оплаты:</strong> ${pay}`, {parse_mode: 'HTML'});
-      
-    }
-
-     return res.status(200).json({});
-  } catch (e) {
-    await bot.answerWebAppQuery(queryId, {
-      type: 'article',
-      id: queryId,
-      title: 'Не далось',
-      input_message_content: {message_text: 'Что-то пошло не так, попробуйте снова!'}
-     })
-     return res.status(500).json({});
-
-  }
-
+try {
+  app.post('/web-data/', async (req, res) => {
+    const {queryId, products, totalPrice, address, username, pay, name, sort, klad} = req.body;
   
-})
+    try {
+       await bot.answerWebAppQuery(queryId, {
+        type: 'article',
+        id: queryId,
+        title: 'Успешная покупка',
+        input_message_content: {message_text:
+           'Ваш заказ в обработке! В ближайшее время с Вами свяжется наш менеджер.'}
+       })
+  
+       if (req.body) {
+        
+          bot.sendMessage(managerChatId, name ?
+          `<strong>Имя пользователя:</strong> @${name ? name : 'нету'}
+  <strong>На сумму:</strong> ${totalPrice} грн 
+  <strong>Сорт:</strong> ${sort} 
+  <strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
+  <strong>Способ доставки:</strong> ${klad}
+  <strong>Доставка на:</strong> ${address}
+  <strong>Способ оплаты:</strong> ${pay}`
+   : 
+   `<strong>Заказ от:</strong> <a href="tg://user?id=${username}">Покупатель</a>
+  <strong>На сумму:</strong> ${totalPrice} грн 
+  <strong>Сорт:</strong> ${sort} 
+  <strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
+  <strong>Способ доставки:</strong> ${klad}
+  <strong>Доставка на:</strong> ${address}
+  <strong>Способ оплаты:</strong> ${pay}`, {parse_mode: 'HTML'});
+        
+      }
+  
+       return res.status(200).json({});
+    } catch (e) {
+      await bot.answerWebAppQuery(queryId, {
+        type: 'article',
+        id: queryId,
+        title: 'Не далось',
+        input_message_content: {message_text: 'Что-то пошло не так, попробуйте снова!'}
+       })
+       return res.status(500).json({});
+  
+    }
+  
+    
+  })
+} catch (e) {
+console.log(e)
+}
+
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, "0.0.0.0", () => console.log(`Server running on port ${PORT}`));
