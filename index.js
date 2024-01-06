@@ -7,16 +7,12 @@ const webAppUrl = 'https://monumental-frangipane-34ce90.netlify.app';
 const managerChatId = '-1001836297880';
 const newUsersChat = '-1002093091761';
 
-try {
-  const bot = new TelegramBot(token, {polling: true});
-  const app = express();
-  
-  app.use(express.json());
-  app.use(cors());
-} catch (e) {
-  console.log(e)
-}
 
+const bot = new TelegramBot(token, {polling: true});
+const app = express();
+
+app.use(express.json());
+app.use(cors());
 
 try {
   bot.on('message', async (msg) => {
