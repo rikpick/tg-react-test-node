@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-/*try {
+try {
   bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
     const text = msg.text;
@@ -22,7 +22,7 @@ app.use(cors());
     
   
     if(text === '/start') {
-      /*await bot.sendPhoto(chatId,'tovar.jpg')
+      /*await bot.sendPhoto(chatId,'tovar.jpg')*/
       await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
           
       });
@@ -49,7 +49,7 @@ app.use(cors());
   });
 } catch (e) {
   console.log(e)
-}*/
+}
 
 
 
