@@ -91,7 +91,9 @@ app.post('/web-data/', async (req, res) => {
  : 
  `<strong>Заказ от:</strong> <a href="tg://user?id=${username}">Покупатель</a>
 <strong>На сумму:</strong> ${totalPrice} грн 
+<strong>Сорт:</strong> ${sort} 
 <strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
+<strong>Способ доставки:</strong> ${klad}
 <strong>Доставка на:</strong> ${address}
 <strong>Способ оплаты:</strong> ${pay}`, {parse_mode: 'HTML'});
       
