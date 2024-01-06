@@ -13,35 +13,40 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
-bot.on('message', async (msg) => {
-  const chatId = msg.chat.id;
-  const text = msg.text;
-
+try {
+  bot.on('message', async (msg) => {
+    const chatId = msg.chat.id;
+    const text = msg.text;
   
-
-  if(text === '/start') {
-    /*await bot.sendPhoto(chatId,'tovar.jpg')*/
-    await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
-        
-    });
-
-    await bot.sendMessage(newUsersChat, `Пользователь ${msg.from.id}, ${msg.from.username}, ${msg.from.is_bot}`
-
-    )
-
-  }
-
-  if(msg?.web_app_data?.data) {
-    try {
-      const data = JSON.parse(msg?.web_app_data?.data)
-      await bot.sendMessage(chatId, 'Спасибо за заказ!')
-
-    } catch (e) {
-      console.log(e);
+    
+  
+    if(text === '/start') {
+      /*await bot.sendPhoto(chatId,'tovar.jpg')*/
+      await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
+          
+      });
+  
+      await bot.sendMessage(newUsersChat, `Пользователь ${msg.from.id}, ${msg.from.username}, ${msg.from.is_bot}`
+  
+      )
+  
     }
-  }
-});
+  
+    if(msg?.web_app_data?.data) {
+      try {
+        const data = JSON.parse(msg?.web_app_data?.data)
+        await bot.sendMessage(chatId, 'Спасибо за заказ!')
+  
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  });
+} catch (e) {
+  console.log(e)
+}
+
+
 
 app.post('/web-data/', async (req, res) => {
   const {queryId, products, totalPrice, address, username, pay, name, sort, klad} = req.body;
