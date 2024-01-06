@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-try {
+/*try {
   bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
     const text = msg.text;
@@ -22,7 +22,7 @@ try {
     
   
     if(text === '/start') {
-      /*await bot.sendPhoto(chatId,'tovar.jpg')*/
+      /*await bot.sendPhoto(chatId,'tovar.jpg')
       await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"', {
           
       });
@@ -49,11 +49,11 @@ try {
   });
 } catch (e) {
   console.log(e)
-}
+}*/
 
 
 
-/*app.post('/web-data/', async (req, res) => {
+app.post('/web-data/', async (req, res) => {
   const {queryId, products, totalPrice, address, username, pay, name, sort, klad} = req.body;
 
   try {
@@ -97,7 +97,7 @@ try {
   }
 
   
-})*/
+})
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, "0.0.0.0", () => console.log(`Server running on port ${PORT}`));
