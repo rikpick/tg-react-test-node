@@ -66,7 +66,7 @@ try {
 
 
 
-try {
+/*try {
   app.post('/web-data/', async (req, res) => {
     const {queryId, products, totalPrice, address, username, pay, name, sort, klad} = req.body;
   
@@ -116,7 +116,7 @@ try {
   })
 } catch (e) {
 console.log(e)
-}
+}*/
 
 
 const PORT = process.env.PORT || 8000;
