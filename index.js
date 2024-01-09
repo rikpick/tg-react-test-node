@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-try {
+/*try {
   bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
     const text = msg.text;
@@ -116,7 +116,7 @@ try {
   })
 } catch (e) {
 console.log(e)
-}
+}*/
 
 
 const PORT = process.env.PORT || 8000;
