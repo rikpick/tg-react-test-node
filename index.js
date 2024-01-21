@@ -14,6 +14,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+bot.on("polling_error", console.log);
+
 try {
   bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
@@ -41,8 +43,14 @@ try {
       65% сатива 35% индика, уровень тгк доходит до 25%, очень мощный сорт с приятными фруктовыми нотками.
       
       <strong>Big Dewil</strong>
-      40% Індика/47,5% Сатива/12,5% Рудераліс, 15-20% тгк, смесь неизвестных сортов сформировавшая уникальный фенотип с ни на что не похожим эффектом.`, {parse_mode: 'HTML'})
-      await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"');
+      40% Індика/47,5% Сатива/12,5% Рудераліс, 15-20% тгк, смесь неизвестных сортов сформировавшая уникальный фенотип с ни на что не похожим эффектом.`, {parse_mode: 'HTML'}).catch((error) => {
+        console.log(error.code);  // => 'ETELEGRAM'
+        console.log(error.response.body); // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
+      });
+      await bot.sendMessage(chatId, '👇Чтобы сделать заказ нажми на кнопку "Магазин"').catch((error) => {
+        console.log(error.code);  // => 'ETELEGRAM'
+        console.log(error.response.body); // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
+      });;
   
       await bot.sendMessage(newUsersChat, `Пользователь ${msg.from.id}, ${msg.from.username}, ${msg.from.is_bot}`
   
@@ -77,7 +85,10 @@ try {
         title: 'Успешная покупка',
         input_message_content: {message_text:
            'Ваш заказ в обработке! В ближайшее время с Вами свяжется наш менеджер.'}
-       })
+       }).catch((error) => {
+        console.log(error.code);  // => 'ETELEGRAM'
+        console.log(error.response.body); // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
+      });
   
        if (req.body) {
         
@@ -96,7 +107,10 @@ try {
   <strong>Количество:</strong> ${products.map(item => item.title).join(', ')}
   <strong>Способ доставки:</strong> ${klad}
   <strong>Доставка на:</strong> ${address}
-  <strong>Способ оплаты:</strong> ${pay}`, {parse_mode: 'HTML'});
+  <strong>Способ оплаты:</strong> ${pay}`, {parse_mode: 'HTML'}).catch((error) => {
+    console.log(error.code);  // => 'ETELEGRAM'
+    console.log(error.response.body); // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
+  });;
         
       }
   
@@ -107,7 +121,10 @@ try {
         id: queryId,
         title: 'Не далось',
         input_message_content: {message_text: 'Что-то пошло не так, попробуйте снова!'}
-       })
+       }).catch((error) => {
+        console.log(error.code);  // => 'ETELEGRAM'
+        console.log(error.response.body); // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
+      });
        return res.status(500).json({});
   
     }
