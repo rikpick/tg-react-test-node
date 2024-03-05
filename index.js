@@ -30,11 +30,8 @@ try {
       <strong>Super Skunk</strong>
       Индика, 17-19% тгк, мягкий накур, полноценное расслабление и сильный эффект.
       
-      <strong>Bruce Benner</strong> 
-      65% сатива 35% индика, уровень тгк доходит до 25%, очень мощный сорт с приятными фруктовыми нотками.
-      
-      <strong>Big Dewil</strong>
-      40% Індика/47,5% Сатива/12,5% Рудераліс, 15-20% тгк, смесь неизвестных сортов сформировавшая уникальный фенотип с ни на что не похожим эффектом.`, {parse_mode: 'HTML'}).catch((error) => {
+      <strong>AK-47</strong> 
+      Всем известный сорт, мягкая сатива, 15-16% тгк, порадует своим мягким эффектом но межи огорчить малой длительностью и совсем не подходит для особо толерантных.`, {parse_mode: 'HTML'}).catch((error) => {
         console.log(error.code);  // => 'ETELEGRAM'
         console.log(error.response.body); // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
       });
